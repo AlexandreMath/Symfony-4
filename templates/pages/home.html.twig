@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Agence R2D2' %}
+{% block body %}
+   <div class="jumbotron text-center">
+        <h1>Agence R2D2</h1>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Et delectus, 
+            corrupti eaque veniam dolorem ad quos rerum neque similique non modi aliquam voluptatibus quo dolore error 
+            soluta quasi omnis cum.
+        </p>
+   </div>
+
+   <div class="container">
+        <h2>Les derniers biens</h2>
+        <div class="row flex">
+            {% for property in properties %}
+                <div class="col-3 mt-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <a href="{{ path('property.show',{id: property.id, slug: property.slug}) }}">{{ property.title }}</a>
+                            </h5>
+                            <p class="card-text">{{ property.city }} ({{ property.postalCode }})</p>
+                            <div class="text-primary" style="font-weight: bold; font-size: 1.8rem;">{{ property.formattedprice }} €</div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+   </div>
+{% endblock %}
