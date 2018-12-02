@@ -4,9 +4,12 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Cocur\Slugify\Slugify;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PropertyRepository")
+ * @UniqueEntity("title")
  */
 class Property
 {
@@ -26,18 +29,20 @@ class Property
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(min=5, max=255)
      */
     private $title;
 
     /**
      * @ORM\Column(type="text", nullable=true)
-     */
+    */
     private $description;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\Range(min=10, max=400)
      */
-    private $Surface;
+    private $surface;
 
     /**
      * @ORM\Column(type="integer")
@@ -76,6 +81,7 @@ class Property
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Regex("/^[0-9]{5}$/")
      */
     private $postal_code;
 
@@ -130,12 +136,12 @@ class Property
 
     public function getSurface(): ?int
     {
-        return $this->Surface;
+        return $this->surface;
     }
 
-    public function setSurface(int $Surface): self
+    public function setSurface(int $surface): self
     {
-        $this->Surface = $Surface;
+        $this->surface = $surface;
 
         return $this;
     }
