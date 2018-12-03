@@ -38,3 +38,11 @@ $this->em->flush();
     <td></td>
 </tr>
 <nav id="tab" class="nav nav-tabs"></nav>
+
+        
+
+        <input type="hidden" name="action" value="users/login">
+        <div class="form-group"></div>
+        {{ getCsrfInput() }}
+        value="{{ craft.session.rememberedUsername }}"
+        

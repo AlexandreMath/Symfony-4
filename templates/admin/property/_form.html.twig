@@ -17,6 +17,6 @@
         <div class="col-md-2">{{ form_row(form.sold) }}</div>
     </div>
     {{ form_rest(form) }}
-    <button class="btn btn-primary mt-2">{{ button|default('Enregistrer') }}</button>
-    <a href="../" class="btn btn-secondary mt-2 float-right">{{ link|default('Annuler') }}</a>
+    <a href="../" class="btn btn-secondary mt-2">{{ link|default('Annuler') }}</a>
+    <button class="btn btn-primary mt-2 float-right">{{ button|default('Enregistrer') }}</button>
 {{ form_end(form) }}
