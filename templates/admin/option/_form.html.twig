@@ -1,0 +1,5 @@
+{{ form_start(form) }}
+    {{ form_rest(form) }}
+    <a href="../" class="btn btn-secondary mt-2">{{ link|default('Annuler') }}</a>
+    <button class="btn btn-primary mt-2 float-right">{{ button|default('Enregistrer') }}</button>
+{{ form_end(form) }}
