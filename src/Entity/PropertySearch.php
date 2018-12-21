@@ -6,14 +6,14 @@ namespace App\Entity;
 class PropertySearch
 {
   /**
-   * Undocumented variable
+   * Prix minimum
    *
    * @var int | null
    */  
   private $minPrice;
 
   /**
-   * Undocumented variable
+   * Prix maximum
    *
    * @var int | null
    */

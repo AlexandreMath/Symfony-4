@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\Common\Persistence\ObjectManager;
 
+
 class AdminPropertyController extends AbstractController
 {
     
@@ -74,12 +75,10 @@ class AdminPropertyController extends AbstractController
     */
     public function edit(Property $property, Request $request)
     {
-        
-        
         $form = $this->createForm(PropertyType::class, $property);
         $form->handleRequest($request);
 
-        if($form->isSubmitted() && $form->isValid()){
+        if($form->isSubmitted() && $form->isValid()) {
             $this->em->flush();
             $this->addFlash('success', 'Le bien a été modifié');
             return $this->redirectToRoute('admin.property.index');
